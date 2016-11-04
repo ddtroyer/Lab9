@@ -6,29 +6,33 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    class CircleApp
+    static public class CircleApp
     {
-        public string printRadius(string strRadius, double radius)
+        static public Circle checkRadius()
         {
             Console.Write("Enter radius: ");
-            strRadius = Console.ReadLine();
+            string strRadius = Console.ReadLine();
+
+            double radius;
             
             while (!checkData(strRadius, out radius))
             {
                 Console.Write("Try again: ");
                 strRadius = Console.ReadLine();
             }
+            Circle NewCircle = new Circle(radius);
+            return NewCircle;
         }
-        public void printScreenTwo()
+        static public void printAnswers(Circle circle)
         {
-            Console.WriteLine("Circumference: ");
-            Console.WriteLine("Area: \t");
+            Console.WriteLine("Circumference: {0}", circle.getFormattedCircumference());
+            Console.WriteLine("Area: {0}", circle.getFormattedArea());
         }
         static bool checkData(string strRadius, out double radius)
         {
             bool isValid = double.TryParse(strRadius, out radius);
 
-            if (isValid && (radius <= 0))
+            if (isValid && (radius >= 0))
             {
                 return true;
             }

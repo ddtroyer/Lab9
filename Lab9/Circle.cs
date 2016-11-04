@@ -7,37 +7,33 @@ using System.Threading.Tasks;
 
 namespace Lab9
 {
-    class Circle
+    public class Circle
     {
+        double _radius;
+
         public Circle(double radius)
         {
-            double radius = 
-        }
-       
-        public double getCircumference(double circumference, int radius)
+            _radius = radius;
+        }    
+        public double getCircumference()
         {
-            circumference = (Math.PI * radius);
-            return circumference;
+            return ((2 * Math.PI) * _radius);           
         }
-        public String getFormattedCircumference(string circumference)
+        public String getFormattedCircumference()
         {
-            string formattedCircumference = string.Format("{0:0.00}", circumference);
-            return formattedCircumference;
+            return getCircumference().ToString("0.00");          
         }
-        public double getArea(int radius)
+        public double getArea()
         {
-            double area = (Math.PI * (radius * radius));
-            return area;
+            return (Math.PI * _radius * _radius);           
         }
-        public String getFormattedArea(double area)
+        public String getFormattedArea()
         {
-            string formattedArea = string.Format("{0:0.00}", area);
-            return formattedArea;
+            return getArea().ToString("0.00");         
         }
         private String formatNumber(double x)
         {
-            String formatNumber = string.Format("{0:0.00}", x);
-            return formatNumber;
+            return x.ToString("0.00");          
         }
     }
 }

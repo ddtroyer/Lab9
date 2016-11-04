@@ -11,13 +11,19 @@ namespace Lab9
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Circle Tester");
-        }
-        CircleApp printRadius(string strRadius, double radius)
-        {
-            Console.Write("Continue? (y/n)");
-            string answer = Console.ReadLine();
-            //if no,
-            Console.WriteLine("Goodbye. You created XXX Circle object(s).");
+            string answer;
+            int count = 0;
+            do
+            {
+                var open = CircleApp.checkRadius();
+                CircleApp.printAnswers(open);
+
+                Console.Write("Continue? (y/n): ");
+                answer = Console.ReadLine() + Environment.NewLine;
+                count++;
+            }
+            while (answer.ToLower() == "y" || answer.ToLower() == "yes");
+            Console.WriteLine("Goodbye. You created {0} Circle object(s).", count);
         }
     }
 }
