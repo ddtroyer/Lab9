@@ -17,13 +17,15 @@ namespace Lab9
             {
                 var open = CircleApp.checkRadius();
                 CircleApp.printAnswers(open);
-
-                Console.Write("Continue? (y/n): ");
-                answer = Console.ReadLine() + Environment.NewLine;
                 count++;
+                Console.Write("Continue? (y/n): ");
+                answer = Console.ReadLine();              
             }
             while (answer.ToLower() == "y" || answer.ToLower() == "yes");
+
             Console.WriteLine("Goodbye. You created {0} Circle object(s).", count);
+            Console.WriteLine("Click Enter to Quit");
+            Console.ReadLine();
         }
     }
 }
